@@ -1,3 +1,4 @@
 {"to":"sandeeptest64@gmail.com","subject":"application for software developer","company_name":"Ellipsonic","filename":"sandeepresume.pdf","date":"7/3/2024","time":"2:22:55 pm"}
 {"to":"patilsandeep0727@gmail.com","subject":"application for software developer","company_name":"Ellipsonic","filename":"sandeepresume.pdf","date":"7/3/2024","time":"2:24:52 pm"}
 {"to":"sandeeptest64@gmail.com","subject":"application for software developer","company_name":"Ellipsonic","filename":"sandeepresume.pdf","date":"7/3/2024","time":"2:29:44 pm"}
+{"to":"r.kshatriya@accenture.com","subject":"application for software developer","company_name":"Accenture","filename":"sandeepresume.pdf","date":"7/3/2024","time":"7:23:08 pm"}
