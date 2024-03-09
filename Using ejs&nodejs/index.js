@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // Route to send email
 app.post('/sendMail', upload.single('attachment'), (req, res) => {
     console.log(req.body);
-    const { to, subject, company_name } = req.body;
+    const { to, subject, company_name, emaiContent } = req.body;
 
     if (!to) {
         return res.status(400).json({ error: 'Recipient email address is required' });
@@ -41,6 +41,7 @@ app.post('/sendMail', upload.single('attachment'), (req, res) => {
                 to,
                 subject,
                 company_name,
+                emaiContent,
                 filename: attachment ? attachment.originalname : 'No Attachment',
                 date: new Date().toLocaleDateString(),
                 time: new Date().toLocaleTimeString()
@@ -72,3 +73,42 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
+// app.post('/sendMail', upload.single('attachment'), (req, res) => {
+//     console.log(req.body);
+//     const { to, subject, company_name, emaiContent } = req.body;
+
+//     if (!to) {
+//         return res.status(400).json({ error: 'Recipient email address is required' });
+//     }
+
+//     const attachment = req.file;
+
+//     const toList = to.split(',').map(email => email.trim());
+
+//     Promise.all(toList.map(email => sendMail({...req.body, to:email}, attachment)))
+//         .then(() => {
+            
+//             toList.forEach(email => {
+//             const emailData = {
+//                 to: email,
+//                 subject,
+//                 company_name,
+//                 emaiContent,
+//                 filename: attachment ? attachment.originalname : 'No Attachment',
+//                 date: new Date().toLocaleDateString(),
+//                 time: new Date().toLocaleTimeString()
+//             };
+
+//             fs.appendFileSync('sentEmails.txt', JSON.stringify(emailData) + '\n');
+//         });
+//             res.redirect('/sentMail');
+//         })
+//         .catch(error => {
+//             console.error('Error sending email:', error);
+//             res.status(500).json({ error: 'Error sending email. Please try again later.' });
+//         });
+// });

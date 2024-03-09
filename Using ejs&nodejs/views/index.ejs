@@ -7,13 +7,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <style>
+        /* Custom CSS for changing hover color */
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #007bff; /* Change to the color you desire */
+        }
+    </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Email Sender</a>
-    <button class="  " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -44,6 +50,10 @@
             <input type="text" class="form-control" id="subject" name="subject" required>
         </div>
         <div class="form-group">
+            <label for="emailContent">Email Content:</label>
+            <textarea class="form-control" id="emailContent" name="emailContent" rows="8" placeholder=""></textarea>
+        </div>
+        <div class="form-group">
             <label for="attachment">Attachment:</label>
             <input type="file" class="form-control-file" id="attachment" name="attachment">
         </div>
@@ -55,6 +65,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script to update emailContent with company_name -->
+<script>
+    // Get the company_name input field and the emailContent textarea
+    const companyNameInput = document.getElementById('company_name');
+    const emailContentTextarea = document.getElementById('emailContent');
+
+    // Add event listener to the company_name input field
+    companyNameInput.addEventListener('input', function() {
+        // Get the value of the company_name input field
+        const companyName = companyNameInput.value;
+
+        // Update the content of the emailContent textarea with the dynamic company name
+        emailContentTextarea.value = `Excited about the prospect of joining your ${companyName} team as a Software Developer, I bring 1.2 years of dedicated experience in software development. With a skill set encompassing HTML, CSS, JavaScript, Bootstrap, and proficiency in crafting responsive designs using React and Angular, I am eager to contribute my expertise to further enhance your organization's success. as I am enthusiastic about the opportunity to bring my skills and passion for innovative digital solutions to your team. Thank you for considering my application, and I look forward to the possibility of contributing to the success of your dynamic company.
+
+Attached is my resume for your preference.
+Thanks and Regards
+SandeepGouda Patil
+patilsandeep0727@gmail.com
++91-8050870939`;
+    });
+</script>
 
 </body>
 </html>

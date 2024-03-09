@@ -13,13 +13,14 @@ async function sendMail(data, attachment) {
             },
             debug: true
         }); 
- 
+        
         // Send email
         let info = await transporter.sendMail({
+
             from: process.env.EMAIL_USER, // Sender address
             to: data.to, // List of recipients
             subject: data.subject, // Subject line
-            text: `Excited about the prospect of joining your ${data.company_name} team as a Software Developer, I bring 1.2 years of dedicated experience in software development`,
+            text: data.emailContent,
             attachments :[
                 {
                     filename : attachment.originalname,
@@ -27,7 +28,6 @@ async function sendMail(data, attachment) {
                     encoding: 'base64'
                 }
             ]
-
         });
         console.log(info);
 
