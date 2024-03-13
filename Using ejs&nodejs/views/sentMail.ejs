@@ -7,6 +7,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
         /* Custom CSS for changing hover color */
         .navbar-light .navbar-nav .nav-link:hover {
@@ -40,7 +42,7 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Sent Emails</h2>
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table id="sentEmailsTable" class="table table-bordered">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">To</th>
@@ -71,9 +73,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
-
-
+<!-- Initialize DataTables -->
+<script>
+    $(document).ready(function() {
+        $('#sentEmailsTable').DataTable();
+    });
+</script>
 
 </body>
 </html>
